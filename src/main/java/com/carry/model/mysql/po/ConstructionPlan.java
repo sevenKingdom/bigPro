@@ -8,15 +8,16 @@ public class ConstructionPlan implements Serializable {
     private String bridgeName;
     private String pierNum;
     private String structure;
-    private String procedure;
+    private String process;
     private String category;
     private Short isNeedDemonstrate;
-    private Long constuctionPlanFile;
+    private Long constructionPlanFile;
     private Short isNeedApprove;
     private Short isAlreadyDemonstrate;
     private Long classId;
     private Long technicianId;
     private Long inspectorId;
+    private Long createdAt;
 
     public Long getId() {
         return id;
@@ -50,12 +51,12 @@ public class ConstructionPlan implements Serializable {
         this.structure = structure;
     }
 
-    public String getProcedure() {
-        return procedure;
+    public String getProcess() {
+        return process;
     }
 
-    public void setProcedure(String procedure) {
-        this.procedure = procedure;
+    public void setProcess(String process) {
+        this.process = process;
     }
 
     public String getCategory() {
@@ -74,12 +75,12 @@ public class ConstructionPlan implements Serializable {
         this.isNeedDemonstrate = isNeedDemonstrate;
     }
 
-    public Long getConstuctionPlanFile() {
-        return constuctionPlanFile;
+    public Long getConstructionPlanFile() {
+        return constructionPlanFile;
     }
 
-    public void setConstuctionPlanFile(Long constuctionPlanFile) {
-        this.constuctionPlanFile = constuctionPlanFile;
+    public void setConstructionPlanFile(Long constructionPlanFile) {
+        this.constructionPlanFile = constructionPlanFile;
     }
 
     public Short getIsNeedApprove() {
@@ -122,6 +123,14 @@ public class ConstructionPlan implements Serializable {
         this.inspectorId = inspectorId;
     }
 
+    public Long getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Long createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Override
     public String toString() {
         return "ConstructionPlan{" +
@@ -129,15 +138,16 @@ public class ConstructionPlan implements Serializable {
                 "bridgeName=" + bridgeName +
                 "pierNum=" + pierNum +
                 "structure=" + structure +
-                "procedure=" + procedure +
+                "process=" + process +
                 "category=" + category +
                 "isNeedDemonstrate=" + isNeedDemonstrate +
-                "constuctionPlanFile=" + constuctionPlanFile +
+                "constructionPlanFile=" + constructionPlanFile +
                 "isNeedApprove=" + isNeedApprove +
                 "isAlreadyDemonstrate=" + isAlreadyDemonstrate +
                 "classId=" + classId +
                 "technicianId=" + technicianId +
                 "inspectorId=" + inspectorId +
+                "cratedAt=" + createdAt +
                 '}';
     }
 }

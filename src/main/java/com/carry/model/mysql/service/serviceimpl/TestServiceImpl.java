@@ -1,4 +1,4 @@
-package com.carry.model.mysql.serviceimpl;
+package com.carry.model.mysql.service.serviceimpl;
 
 
 import com.carry.model.mysql.dao.TestMapper;

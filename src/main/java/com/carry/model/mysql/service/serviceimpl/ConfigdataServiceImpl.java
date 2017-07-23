@@ -1,9 +1,9 @@
 package com.carry.model.mysql.service.serviceimpl;
 
 
-import com.carry.model.mysql.dao.TestMapper;
-import com.carry.model.mysql.po.Test;
-import com.carry.model.mysql.service.TestService;
+import com.carry.model.mysql.dao.ConfigdataMapper;
+import com.carry.model.mysql.po.Configdata;
+import com.carry.model.mysql.service.ConfigdataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by songxianying on 17/7/12.
  */
 @Service
-public class TestServiceImpl implements TestService {
+public class ConfigdataServiceImpl implements ConfigdataService {
     @Autowired
-    private TestMapper testMapper;
+    private ConfigdataMapper testMapper;
     @Transactional
     @Override
-    public Test findAccountList() {
+    public Configdata findAccountList() {
         return testMapper.findTest(1);
     }
 }

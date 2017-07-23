@@ -1,7 +1,7 @@
 package com.carry.model.mysql.controller;
 
-import com.carry.model.mysql.po.Test;
-import com.carry.model.mysql.service.TestService;
+import com.carry.model.mysql.po.Configdata;
+import com.carry.model.mysql.service.ConfigdataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/mysql")
 public class TestController {
     @Autowired
-    TestService testServic;
+    ConfigdataService testServic;
     //@ResponseBody
     @RequestMapping(value = "/test")
-    public Test getTest() {
+    public Configdata getTest() {
         return testServic.findAccountList();
     }
 }

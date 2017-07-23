@@ -1,11 +1,10 @@
 package com.carry.model.mysql.dao;
 
 
-import com.carry.model.mysql.po.Test;
+import com.carry.model.mysql.po.Configdata;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface TestMapper {
-    @Select("select * from test where id = #{id}")
-    Test findTest(@Param("id") int id);
+public interface ConfigdataMapper {
+    @Select("select * from configdata where id = #{id}")
+    Configdata findTest(@Param("id") int id);
 }

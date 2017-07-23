@@ -10,7 +10,7 @@ public class UserData implements Serializable {
      private Long dutyid;
      private Long infoid;
      private Integer state;
-     private Long token;
+     private String token;
      private Integer role;
 
 
@@ -70,11 +70,11 @@ public class UserData implements Serializable {
 	 	this.state=state;
 	 }
 
-     public Long getToken(){
+     public String getToken(){
      	return token;
      }
      
-     public void setToken(Long token){
+     public void setToken(String token){
 	 	this.token=token;
 	 }
 

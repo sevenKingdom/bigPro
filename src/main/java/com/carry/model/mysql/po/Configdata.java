@@ -1,5 +1,8 @@
 package com.carry.model.mysql.po;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 /**
  * Created by songxianying on 17/7/15.
  */
@@ -32,4 +35,5 @@ public class Configdata {
     public void setName(String name) {
         this.name = name;
     }
+
 }

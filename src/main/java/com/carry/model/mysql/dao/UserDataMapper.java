@@ -23,8 +23,8 @@ public interface UserDataMapper {
     @Update("update user_data set token = #{token} where id = #{id}")
     long updateToken(@Param("id") long id,@Param("token") String token);
 
-    @Insert("insert into user_data(name, password,department,dutyid,infoid,state,role) " +
-            "values(#{name}, #{password},#{department},#{dutyid},#{infoid},#{state},#{role})")
+    @Insert("insert into user_data(name, password,department,dutyid,infoid,state,role,post) " +
+            "values(#{name}, #{password},#{department},#{dutyid},#{infoid},#{state},#{role},#{post})")
     long addUserData(UserData userdata);
 
     @Insert("insert into user_info(name, sex,birthdate,phone,mail) " +

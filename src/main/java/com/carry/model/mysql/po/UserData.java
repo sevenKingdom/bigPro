@@ -11,8 +11,17 @@ public class UserData implements Serializable {
      private Long infoid;
      private Integer state;
      private String token;
-     private Integer role;
 
+    public Integer getPost() {
+        return post;
+    }
+
+    public void setPost(Integer post) {
+        this.post = post;
+    }
+
+    private Integer role;
+    private Integer post;
 
      public Long getId(){
      	return id;

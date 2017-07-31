@@ -18,12 +18,11 @@ public class UserController {
     @Autowired
     UserDataService userDataService;
     @RequestMapping(value = "/createuser" ,method = RequestMethod.POST)
-    public Map<Long,String> creatUser(@RequestBody UserCreat userCreat) {
-        userCreat.getUserData();
+    public Map<String,Object> creatUser(@RequestBody UserCreat userCreat) {
         return userDataService.creatUser(userCreat.getUserData(),userCreat.getUserInfo());
     }
     @RequestMapping(value = "/login" ,method = RequestMethod.GET)
-    public UserData login(@RequestParam("name") String name, @RequestParam("password") String password ){
+    public UserCreat login(@RequestParam("name") String name, @RequestParam("password") String password ){
         return userDataService.login(name, password);
     }
     @RequestMapping(value = "/logoff" ,method = RequestMethod.GET)

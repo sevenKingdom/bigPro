@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class UserInfo  implements Serializable {
-     private Long id;
+     private long id;
      private String name;
      private Integer sex;
      private Timestamp birthdate;
@@ -13,12 +13,12 @@ public class UserInfo  implements Serializable {
      private String mail;
 
 
-     public Long getId(){
+     public long getId(){
      	return id;
      }
      
-     public void setId(Long id){
-	 	this.id=id;
+     public void setId(long infoid){
+	 	this.id=infoid;
 	 }
 
      public String getName(){

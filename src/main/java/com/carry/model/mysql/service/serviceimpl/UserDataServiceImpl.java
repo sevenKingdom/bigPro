@@ -4,6 +4,7 @@ import com.carry.common.TokenProccessor;
 import com.carry.model.mysql.dao.ConfigdataMapper;
 import com.carry.model.mysql.dao.UserDataMapper;
 import com.carry.model.mysql.po.Configdata;
+import com.carry.model.mysql.po.UserCreat;
 import com.carry.model.mysql.po.UserData;
 import com.carry.model.mysql.po.UserInfo;
 import com.carry.model.mysql.service.UserDataService;
@@ -29,24 +30,34 @@ public class UserDataServiceImpl implements UserDataService {
     }
     @Transactional
     @Override
-    public Map<Long,String> creatUser (UserData userData, UserInfo userInfo) {
-        long infoid = userDataMapper.addUserinfo(userInfo);
-        userData.setInfoid(infoid);
+    public Map<String,Object> creatUser (UserData userData, UserInfo userInfo) {
+        userDataMapper.addUserinfo(userInfo);
+        userData.setInfoid(userInfo.getId());
         String token = TokenProccessor.getInstance().makeToken();
         userData.setToken(token);
 
-        Map<Long,String> data = Maps.newHashMap();
-        data.put(userDataMapper.addUserData(userData),token);
+        Map<String,Object> data = Maps.newHashMap();
+        userDataMapper.addUserData(userData);
+        data.put("userid",userData.getId());
+        data.put("username",userInfo.getName());
+        data.put("userphone",userInfo.getPhone());
+        data.put("usermail",userInfo.getMail());
         return data;
     }
     @Transactional
     @Override
-    public UserData login(String name, String password ){
+    public UserCreat login(String name, String password ){
         UserData userData = userDataMapper.findByNameAndPassword(name, password);
+        if(userData ==null)
+            return null;
+        UserInfo userInfo = userDataMapper.findUserInfoByid(userData.getInfoid());
         String token = TokenProccessor.getInstance().makeToken();
         userDataMapper.updateToken(userData.getId(),token);
         userData.setToken(token);
-        return userData;
+        UserCreat data =  new UserCreat();
+        data.setUserData(userData);
+        data.setUserInfo(userInfo);
+        return data;
     }
     @Transactional
     @Override

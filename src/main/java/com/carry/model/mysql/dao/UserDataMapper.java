@@ -23,17 +23,21 @@ public interface UserDataMapper {
     @Update("update user_data set token = #{token} where id = #{id}")
     long updateToken(@Param("id") long id,@Param("token") String token);
 
-    @Insert("insert into user_data(name, password,department,dutyid,infoid,state,role,post) " +
-            "values(#{name}, #{password},#{department},#{dutyid},#{infoid},#{state},#{role},#{post})")
+    @Insert("insert into user_data(name, password,department,dutyid,infoid,state,role,post,token) " +
+            "values(#{name}, #{password},#{department},#{dutyid},#{infoid},#{state},#{role},#{post},#{token})")
+    @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     long addUserData(UserData userdata);
 
     @Insert("insert into user_info(name, sex,birthdate,phone,mail) " +
             "values(#{name}, #{sex},#{birthdate},#{phone},#{mail})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     long addUserinfo(UserInfo userInfo);
 
     @Update("update user_info set phone = #{phone} where mail = #{mail}")
     long updateInfo(@Param("phone") String phone,@Param("mail") String mail);
 
+    @Select("select * from user_info where id = #{id} ")
+    UserInfo findUserInfoByid(@Param("id") long id  );
 
 
     //@Update("update account set name = #{name}, money = #{money} where id = #{id}")

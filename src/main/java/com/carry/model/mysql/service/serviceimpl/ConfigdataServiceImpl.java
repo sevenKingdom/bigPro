@@ -17,7 +17,7 @@ public class ConfigdataServiceImpl implements ConfigdataService {
     private ConfigdataMapper testMapper;
     @Transactional
     @Override
-    public Configdata findAccountList() {
+    public Configdata findOrganization() {
         return testMapper.findTest(1);
     }
 }

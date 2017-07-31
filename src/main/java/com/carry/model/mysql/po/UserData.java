@@ -3,22 +3,31 @@ package com.carry.model.mysql.po;
 import java.io.Serializable;
 
 public class UserData implements Serializable {
-     private Long id;
+     private long id;
      private String name;
      private String password;
      private String department;
      private Long dutyid;
      private Long infoid;
      private Integer state;
-     private Long token;
-     private Integer role;
+     private String token;
 
+    public Integer getPost() {
+        return post;
+    }
 
-     public Long getId(){
+    public void setPost(Integer post) {
+        this.post = post;
+    }
+
+    private Integer role;
+    private Integer post;
+
+     public long getId(){
      	return id;
      }
      
-     public void setId(Long id){
+     public void setId(long id){
 	 	this.id=id;
 	 }
 
@@ -70,11 +79,11 @@ public class UserData implements Serializable {
 	 	this.state=state;
 	 }
 
-     public Long getToken(){
+     public String getToken(){
      	return token;
      }
      
-     public void setToken(Long token){
+     public void setToken(String token){
 	 	this.token=token;
 	 }
 

@@ -16,6 +16,7 @@ public class ConstructionPlan implements Serializable {
     private Short isAlreadyDemonstrate;
     private Long classId;
     private Long technicianId;
+    private String whether;
     private Long inspectorId;
     private Long createdAt;
 
@@ -115,6 +116,14 @@ public class ConstructionPlan implements Serializable {
         this.technicianId = technicianId;
     }
 
+    public String getWhether() {
+        return whether;
+    }
+
+    public void setWhether(String whether) {
+        this.whether = whether;
+    }
+
     public Long getInspectorId() {
         return inspectorId;
     }
@@ -146,6 +155,7 @@ public class ConstructionPlan implements Serializable {
                 "isAlreadyDemonstrate=" + isAlreadyDemonstrate +
                 "classId=" + classId +
                 "technicianId=" + technicianId +
+                "whether=" + whether +
                 "inspectorId=" + inspectorId +
                 "cratedAt=" + createdAt +
                 '}';

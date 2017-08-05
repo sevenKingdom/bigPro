@@ -65,4 +65,11 @@ public class UserDataServiceImpl implements UserDataService {
         String token = TokenProccessor.getInstance().makeToken();
         return userDataMapper.updateToken(id,token);
     }
+
+    @Transactional
+    @Override
+    public UserData verification (String token) {
+        UserData userData = userDataMapper.findByToken(token);
+        return userData;
+    }
 }

@@ -29,4 +29,9 @@ public class UserController {
     public long logoff(@RequestParam("id") long id) {
         return userDataService.logoff(id);
     }
+
+    @RequestMapping(value = "/verification" ,method = RequestMethod.GET)
+    public UserData verification(@RequestParam("token") String token) {
+        return userDataService.verification(token);
+    }
 }

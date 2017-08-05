@@ -10,8 +10,15 @@ import java.util.Map;
  * Created by songxianying on 17/7/18.
  */
 public interface UserDataService {
+
     public long updatetoken (long id);
+
     public Map<String,Object> creatUser (UserData userData, UserInfo userInfo) ;
+
     UserCreat login(String name, String password );
+
     public long logoff(long id);
+
+    UserData verification (String token);
+
 }

@@ -1,6 +1,7 @@
 package com.carry.model.mysql.service;
 
 import com.carry.model.mysql.po.ConstructionPlan;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -24,4 +25,14 @@ public interface ConstructionPlanService {
      * @return
      */
     long saveConstructionPlan(ConstructionPlan constructionPlan);
+
+    /**
+     * 拿到权限
+     *
+     * @param
+     * @return
+     */
+    String getPlanAuthor (Long id) ;
+
+    long updatePlanInspector (Long inspectorid, Long id) ;
 }

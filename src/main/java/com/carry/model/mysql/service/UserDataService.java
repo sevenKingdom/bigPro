@@ -21,4 +21,5 @@ public interface UserDataService {
 
     UserData verification (String token);
 
+    String vDepentment (String token);
 }

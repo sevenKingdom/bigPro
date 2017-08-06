@@ -20,4 +20,14 @@ public interface ConstructionPlanMapper {
             ",#{category},#{isNeedDemonstrate},#{constructionPlanFile},#{isNeedApprove},#{technicianId},#{createdAt})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     long saveConstructionPlan(ConstructionPlan constructionPlan);
+
+
+    @Select(" select department from user_data where id in " +
+            "(select technician_id from construction_plan_t where id = #{id} )")
+    String getPlanAuthor (@Param("id") Long id) ;
+
+    @Update("update construction_plan_t set inspector_id = #{inspectorid} where id = #{id}")
+    long updatePlanInspector (@Param("inspectorid") Long inspectorid,@Param("id") Long id) ;
+
+    
 }

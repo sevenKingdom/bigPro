@@ -72,4 +72,11 @@ public class UserDataServiceImpl implements UserDataService {
         UserData userData = userDataMapper.findByToken(token);
         return userData;
     }
+
+    @Transactional
+    @Override
+    public String vDepentment (String token) {
+        String userData = userDataMapper.findDepartmentByToken(token);
+        return userData;
+    }
 }

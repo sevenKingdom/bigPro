@@ -3,6 +3,7 @@ package com.carry.model.mysql.service.serviceimpl;
 import com.carry.model.mysql.dao.ConstructionPlanMapper;
 import com.carry.model.mysql.po.ConstructionPlan;
 import com.carry.model.mysql.service.ConstructionPlanService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +39,13 @@ public class ConstructionPlanServiceImpl implements ConstructionPlanService {
     public long saveConstructionPlan(ConstructionPlan constructionPlan) {
         constructionPlanMapper.saveConstructionPlan(constructionPlan);
         return constructionPlan.getId();
+    }
+    @Override
+    public String getPlanAuthor (Long id) {
+        return constructionPlanMapper.getPlanAuthor(id);
+    }
+    @Override
+    public long updatePlanInspector (Long inspectorid, Long id) {
+        return constructionPlanMapper.updatePlanInspector(inspectorid, id);
     }
 }

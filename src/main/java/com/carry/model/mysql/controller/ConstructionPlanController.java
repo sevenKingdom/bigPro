@@ -5,6 +5,7 @@ import com.carry.model.mysql.service.ConstructionPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -43,4 +44,8 @@ public class ConstructionPlanController {
         return planId;
     }
 
+    @RequestMapping(value = "/updatePlanInspector")
+    public long updatePlanInspector (@RequestParam("inspectorid") Long inspectorid, @RequestParam("id") Long id) {
+        return constructionPlanService.updatePlanInspector(inspectorid, id);
+    }
 }

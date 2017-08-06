@@ -20,6 +20,9 @@ public interface UserDataMapper {
     @Select("select token from user_data where id = #{id} ")
     String findTokenByid(@Param("id") long id  );
 
+    @Select("select department from user_data where token = #{token} ")
+    String findDepartmentByToken (@Param("token") String token );
+
     @Select("select * from user_data where token = #{token} ")
     UserData findByToken (@Param("token") String token );
 

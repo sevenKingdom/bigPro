@@ -25,8 +25,8 @@ public class ConstructionPlanServiceImpl implements ConstructionPlanService {
      * @return
      */
     @Override
-    public List<ConstructionPlan> getOneDayList(Long startTime, Long endTime) {
-        return constructionPlanMapper.getListByTime(startTime, endTime);
+    public List<ConstructionPlan> getOneDayList(Long startTime, Long endTime, String technicianIds) {
+        return constructionPlanMapper.getListByTime(startTime, endTime, technicianIds);
     }
 
     /**

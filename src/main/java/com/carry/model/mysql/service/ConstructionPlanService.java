@@ -16,7 +16,7 @@ public interface ConstructionPlanService {
      * @param endTime
      * @return
      */
-    List<ConstructionPlan> getOneDayList(Long startTime, Long endTime);
+    List<ConstructionPlan> getOneDayList(Long startTime, Long endTime, String technicianIds);
 
     /**
      * 插入计划

@@ -22,10 +22,10 @@ public class ConstructionPlanController {
     private ConstructionPlanService constructionPlanService;
 
     @RequestMapping(value = "/getOneDayList")
-    public List<ConstructionPlan> getOneDayList(Long startTime, Long endTime) {
+    public List<ConstructionPlan> getOneDayList(Long startTime, Long endTime, String technicianIds) {
         List<ConstructionPlan> result = new ArrayList<>();
         try {
-            result = constructionPlanService.getOneDayList(startTime, endTime);
+            result = constructionPlanService.getOneDayList(startTime, endTime, technicianIds);
         } catch (Exception e) {
             e.printStackTrace();
         }

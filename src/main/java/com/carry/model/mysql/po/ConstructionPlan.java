@@ -19,6 +19,7 @@ public class ConstructionPlan implements Serializable {
     private String whether;
     private Long inspectorId;
     private Long createdAt;
+    private String point;
 
     public Long getId() {
         return id;
@@ -138,6 +139,15 @@ public class ConstructionPlan implements Serializable {
 
     public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
+    }
+
+
+    public String getPoint() {
+        return point;
+    }
+
+    public void setPoint(String point) {
+        this.point = point;
     }
 
     @Override

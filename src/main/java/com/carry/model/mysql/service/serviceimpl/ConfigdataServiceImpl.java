@@ -20,4 +20,9 @@ public class ConfigdataServiceImpl implements ConfigdataService {
     public Configdata findOrganization() {
         return testMapper.findTest(1);
     }
+    @Transactional
+    @Override
+    public Configdata findProcesses(Integer id) {
+        return testMapper.findTest(id);
+    }
 }

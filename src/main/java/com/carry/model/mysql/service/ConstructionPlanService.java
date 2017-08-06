@@ -36,5 +36,8 @@ public interface ConstructionPlanService {
 
     long updatePlanInspector (Long inspectorid, Long id) ;
 
-    List<Long> getTechnicianid(@Param("department") String department);;
+    List<Long> getTechnicianid( String department);
+
+    List<ConstructionPlan> getListByInspectorid( Long inspectorid,Long startTime,  Long endTime);
+
 }

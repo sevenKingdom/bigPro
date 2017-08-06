@@ -29,5 +29,6 @@ public interface ConstructionPlanMapper {
     @Update("update construction_plan_t set inspector_id = #{inspectorid} where id = #{id}")
     long updatePlanInspector (@Param("inspectorid") Long inspectorid,@Param("id") Long id) ;
 
-    
+    @Select(" select id from user_data where department = #{department} and role = 1")
+    List<Long> getTechnicianid(@Param("department") String department);
 }

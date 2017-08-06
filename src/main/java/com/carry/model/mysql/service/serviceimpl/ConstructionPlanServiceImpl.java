@@ -48,4 +48,9 @@ public class ConstructionPlanServiceImpl implements ConstructionPlanService {
     public long updatePlanInspector (Long inspectorid, Long id) {
         return constructionPlanMapper.updatePlanInspector(inspectorid, id);
     }
+
+    @Override
+    public List<Long> getTechnicianid(String department) {
+        return constructionPlanMapper.getTechnicianid(department);
+    }
 }

@@ -2,6 +2,7 @@ package com.carry.model.mysql.controller;
 
 import com.carry.model.mysql.po.ConstructionPlan;
 import com.carry.model.mysql.service.ConstructionPlanService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,5 +48,10 @@ public class ConstructionPlanController {
     @RequestMapping(value = "/updatePlanInspector")
     public long updatePlanInspector (@RequestParam("inspectorid") Long inspectorid, @RequestParam("id") Long id) {
         return constructionPlanService.updatePlanInspector(inspectorid, id);
+    }
+
+    @RequestMapping(value = "/getTechnicianid")
+    public List<Long> getTechnicianid(@Param("department") String department) {
+        return constructionPlanService.getTechnicianid(department);
     }
 }

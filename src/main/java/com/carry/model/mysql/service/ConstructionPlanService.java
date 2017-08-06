@@ -35,4 +35,6 @@ public interface ConstructionPlanService {
     String getPlanAuthor (Long id) ;
 
     long updatePlanInspector (Long inspectorid, Long id) ;
+
+    List<Long> getTechnicianid(@Param("department") String department);;
 }

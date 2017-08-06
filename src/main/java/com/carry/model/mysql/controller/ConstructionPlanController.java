@@ -51,7 +51,14 @@ public class ConstructionPlanController {
     }
 
     @RequestMapping(value = "/getTechnicianid")
-    public List<Long> getTechnicianid(@Param("department") String department) {
+    public List<Long> getTechnicianid(@RequestParam("department") String department) {
         return constructionPlanService.getTechnicianid(department);
+    }
+
+    @RequestMapping(value = "/getListByInspectorid")
+    public List<ConstructionPlan> getListByInspectorid(@RequestParam("inspectorid") Long inspectorid,
+                                                @RequestParam("startTime") Long startTime,
+                                                @RequestParam("endTime") Long endTime) {
+        return constructionPlanService.getListByInspectorid(inspectorid, startTime, endTime) ;
     }
 }

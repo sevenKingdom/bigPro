@@ -32,4 +32,8 @@ public interface ConstructionPlanMapper {
 
     @Select(" select id from user_data where department = #{department} and role = 1")
     List<Long> getTechnicianid(@Param("department") String department);
+
+    @Select("select * from construction_plan_t where inspector_id = #{inspectorid} " +
+            "and created_at >= #{startTime} and created_at <= #{endTime}")
+    List<ConstructionPlan> getListByInspectorid(@Param("inspectorid") Long inspectorid,@Param("startTime") Long startTime, @Param("endTime") Long endTime);
 }

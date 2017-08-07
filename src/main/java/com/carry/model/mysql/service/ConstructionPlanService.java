@@ -38,6 +38,16 @@ public interface ConstructionPlanService {
 
     List<Long> getTechnicianid( String department);
 
+    /**
+     * 根据工班长id获取当天任务列表
+     *
+     * @param startTime
+     * @param endTime
+     * @param calssId
+     * @return
+     */
+    List<String> getOneDayProcessListByClassId(Long startTime, Long endTime, Long calssId);
+
     List<ConstructionPlan> getListByInspectorid( Long inspectorid,Long startTime,  Long endTime);
 
 }

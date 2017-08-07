@@ -17,8 +17,8 @@ public interface ConstructionPlanMapper {
     List<ConstructionPlan> getListByTime(@Param("startTime") Long startTime, @Param("endTime") Long endTime, @Param("technicianIds") String technicianIds);
 
     @Insert("insert into construction_plan_t(bridgeName,pierNum,structure,process,category,isNeedDemonstrate," +
-            "constructionPlanFile,isNeedApprove,technicianId,createdAt) values (#{bridgeName},#{pierNum},#{structure},#{process}" +
-            ",#{category},#{isNeedDemonstrate},#{constructionPlanFile},#{isNeedApprove},#{technicianId},#{createdAt})")
+            "constructionPlanFile,isNeedApprove,technicianId,whether,createdAt) values (#{bridgeName},#{pierNum},#{structure},#{process}" +
+            ",#{category},#{isNeedDemonstrate},#{constructionPlanFile},#{isNeedApprove},#{technicianId},#{whether},#{createdAt})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     long saveConstructionPlan(ConstructionPlan constructionPlan);
 
@@ -32,6 +32,9 @@ public interface ConstructionPlanMapper {
 
     @Select(" select id from user_data where department = #{department} and role = 1")
     List<Long> getTechnicianid(@Param("department") String department);
+
+    @Select("select process from construction_plan_t where createdAt >= #{startTime} and createdAt <= #{endTime} and classId = #{calssId}")
+    List<String> getOneDayProcessListByClassId(@Param("startTime") Long startTime, @Param("endTime") Long endTime, @Param("classId") Long classId);
 
     @Select("select * from construction_plan_t where inspectorId = #{inspectorid} " +
             "and createdAt >= #{startTime} and createdAt <= #{endTime}")

@@ -66,4 +66,9 @@ public class ConstructionPlanController {
                                                 @RequestParam("endTime") Long endTime) {
         return constructionPlanService.getListByInspectorid(inspectorid, startTime, endTime) ;
     }
+
+    @RequestMapping(value = "/getPLanById")
+    public ConstructionPlan getByid(@RequestParam("id") Long id) {
+        return constructionPlanService.getByid(id);
+    }
 }

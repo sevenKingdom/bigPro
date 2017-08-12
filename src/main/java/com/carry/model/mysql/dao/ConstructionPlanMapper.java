@@ -39,4 +39,7 @@ public interface ConstructionPlanMapper {
     @Select("select * from construction_plan_t where inspectorId = #{inspectorid} " +
             "and createdAt >= #{startTime} and createdAt <= #{endTime}")
     List<ConstructionPlan> getListByInspectorid(@Param("inspectorid") Long inspectorid,@Param("startTime") Long startTime, @Param("endTime") Long endTime);
+
+    @Select(" select * from construction_plan_t where id = #{id}")
+    ConstructionPlan getByid(@Param("id") Long id);
 }

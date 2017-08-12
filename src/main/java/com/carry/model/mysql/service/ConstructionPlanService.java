@@ -50,4 +50,6 @@ public interface ConstructionPlanService {
 
     List<ConstructionPlan> getListByInspectorid( Long inspectorid,Long startTime,  Long endTime);
 
+    ConstructionPlan getByid( Long id);
+
 }

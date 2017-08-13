@@ -71,4 +71,8 @@ public class ConstructionPlanServiceImpl implements ConstructionPlanService {
     public List<ConstructionPlan> getListByInspectorid( Long inspectorid,Long startTime,  Long endTime) {
         return constructionPlanMapper.getListByInspectorid(inspectorid, startTime, endTime);
     }
+    @Override
+    public ConstructionPlan getByid(Long id) {
+        return constructionPlanMapper.getByid(id);
+    }
 }

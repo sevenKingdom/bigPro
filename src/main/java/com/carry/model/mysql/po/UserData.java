@@ -11,6 +11,7 @@ public class UserData implements Serializable {
      private Long infoid;
      private Integer state;
      private String token;
+    private Integer score;
 
     public Integer getPost() {
         return post;
@@ -94,7 +95,16 @@ public class UserData implements Serializable {
      public void setRole(Integer role){
 	 	this.role=role;
 	 }
-	@Override
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    @Override
     public String toString() {
         return "UserData{" +
                 	"id=" + id +

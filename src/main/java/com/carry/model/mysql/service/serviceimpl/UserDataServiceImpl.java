@@ -79,4 +79,10 @@ public class UserDataServiceImpl implements UserDataService {
         String userData = userDataMapper.findDepartmentByToken(token);
         return userData;
     }
+
+    @Transactional
+    @Override
+    public long updateUserScore (long id, int score) {
+        return userDataMapper.updateUserScore(id,score);
+    }
 }

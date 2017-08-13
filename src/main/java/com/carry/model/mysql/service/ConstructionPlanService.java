@@ -46,7 +46,7 @@ public interface ConstructionPlanService {
      * @param calssId
      * @return
      */
-    List<String> getOneDayProcessListByClassId(Long startTime, Long endTime, Long calssId);
+    List<ConstructionPlan> getOneDayProcessListByClassId(Long startTime, Long endTime, Long calssId);
 
     List<ConstructionPlan> getListByInspectorid( Long inspectorid,Long startTime,  Long endTime);
 

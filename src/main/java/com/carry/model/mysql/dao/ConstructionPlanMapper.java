@@ -33,8 +33,8 @@ public interface ConstructionPlanMapper {
     @Select(" select id from user_data where department = #{department} and role = 1")
     List<Long> getTechnicianid(@Param("department") String department);
 
-    @Select("select process from construction_plan_t where createdAt >= #{startTime} and createdAt <= #{endTime} and classId = #{calssId}")
-    List<String> getOneDayProcessListByClassId(@Param("startTime") Long startTime, @Param("endTime") Long endTime, @Param("classId") Long classId);
+    @Select("select * from construction_plan_t where createdAt >= #{startTime} and createdAt <= #{endTime} and classId = #{classId}")
+    List<ConstructionPlan> getOneDayProcessListByClassId(@Param("startTime") Long startTime, @Param("endTime") Long endTime, @Param("classId") Long classId);
 
     @Select("select * from construction_plan_t where inspectorId = #{inspectorid} " +
             "and createdAt >= #{startTime} and createdAt <= #{endTime}")

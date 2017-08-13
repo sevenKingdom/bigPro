@@ -63,7 +63,7 @@ public class ConstructionPlanServiceImpl implements ConstructionPlanService {
      * @return
      */
     @Override
-    public List<String> getOneDayProcessListByClassId(Long startTime, Long endTime, Long calssId) {
+    public List<ConstructionPlan> getOneDayProcessListByClassId(Long startTime, Long endTime, Long calssId) {
         return constructionPlanMapper.getOneDayProcessListByClassId(startTime, endTime, calssId);
     }
 

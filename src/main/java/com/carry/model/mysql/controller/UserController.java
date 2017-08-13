@@ -49,4 +49,9 @@ public class UserController {
     public String getPlanAuthor(@RequestParam("id") Long id) {
         return constructionPlanService.getPlanAuthor(id);
     }
+
+    @RequestMapping(value = "/updateUserScore",method = RequestMethod.GET)
+    public Long updateUserScore(@RequestParam("id") Long id, @RequestParam("score") Integer score) {
+        return userDataService.updateUserScore(id,score);
+    }
 }

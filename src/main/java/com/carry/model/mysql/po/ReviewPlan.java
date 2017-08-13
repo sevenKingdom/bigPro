@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class ReviewPlan implements Serializable {
      private Long id;
-     private Long planId;
+     private Long planid;
      private String lowquality;
      private Long reviewer;
      private String power;
@@ -21,22 +21,22 @@ public class ReviewPlan implements Serializable {
 	 	this.id=id;
 	 }
 
-     public Long getPlanId(){
-     	return planId;
-     }
-     
-     public void setPlanId(Long planId){
-	 	this.planId=planId;
-	 }
+	public Long getPlanid() {
+		return planid;
+	}
 
-     public String getLowquality(){
+	public void setPlanid(Long planid) {
+		this.planid = planid;
+	}
+
+	public String getLowquality(){
      	return lowquality;
      }
      
      public void setLowquality(String lowquality){
 	 	this.lowquality=lowquality;
 	 }
-	 	
+
      public Long getReviewer(){
      	return reviewer;
      }
@@ -72,7 +72,7 @@ public class ReviewPlan implements Serializable {
     public String toString() {
         return "ReviewPlan{" +
                 	"id=" + id +
-                	"planId=" + planId +
+                	"planId=" + planid +
                 	"lowquality=" + lowquality +
                 	"reviewer=" + reviewer +
                 	"power=" + power +

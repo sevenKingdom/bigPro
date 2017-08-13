@@ -24,4 +24,9 @@ public class NoticeServiceImpl implements NoticeService {
         else
             return null;
     }
+    @Transactional
+    @Override
+    public long updateNotice(long id, String data ){
+        return noticeMapper.updateNotice(id,data);
+    }
 }

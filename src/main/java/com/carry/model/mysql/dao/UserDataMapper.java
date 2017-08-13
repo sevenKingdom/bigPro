@@ -46,8 +46,8 @@ public interface UserDataMapper {
     UserInfo findUserInfoByid(@Param("id") long id  );
 
 
-    //@Update("update account set name = #{name}, money = #{money} where id = #{id}")
-    //int update(@Param("name") String name, @Param("money") double money, @Param("id") int  id);
+    @Update("update user_data set score = score + #{score} where id = #{id}")
+    long updateUserScore(@Param("id") long  id,@Param("score") int  score);
 
 
     //@Delete("delete from account where id = #{id}")

@@ -18,4 +18,9 @@ public class NoticeController {
                                       @RequestParam("department") String department) {
         return noticeService.getNoticeData(level, department);
     }
+    @RequestMapping(value = "/updateNotice" ,method = RequestMethod.POST)
+    public Long updateNotice(@RequestParam("id") long id,
+                            @RequestParam("data") String data) {
+        return noticeService.updateNotice(id, data);
+    }
 }

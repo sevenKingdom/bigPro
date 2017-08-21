@@ -10,7 +10,7 @@ public class InspectionRecord implements Serializable {
      private String quality;
      private String lowquality;
      private Integer style;
-     private Long createdat;
+     private Long createdAt;
 
 
      public Long getId(){
@@ -61,15 +61,18 @@ public class InspectionRecord implements Serializable {
 	 	this.style=style;
 	 }
 
-     public Long getCreatedat(){
-     	return createdat;
-     }
-     
-     public void setCreatedat(Long createdat){
-	 	this.createdat=createdat;
-	 }
-	@Override
+
+    public Long getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Override
     public String toString() {
+
         return "InspectionRecord{" +
                 	"id=" + id +
                 	"inspectorid=" + inspectorid +
@@ -77,7 +80,7 @@ public class InspectionRecord implements Serializable {
                 	"quality=" + quality +
                 	"lowquality=" + lowquality +
                 	"style=" + style +
-                	"createdat=" + createdat +
+                	"createdat=" + createdAt +
                 '}';
     }
 }

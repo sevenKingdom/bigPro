@@ -8,7 +8,7 @@ public class ClassReviewRecord  implements Serializable {
      private Long planid;
      private String lowquality;
      private Integer style;
-     private Long createdat;
+     private Long createdAt;
 
 
      public Long getId(){
@@ -51,14 +51,15 @@ public class ClassReviewRecord  implements Serializable {
 	 	this.style=style;
 	 }
 
-     public Long getCreatedat(){
-     	return createdat;
-     }
-     
-     public void setCreatedat(Long createdat){
-	 	this.createdat=createdat;
-	 }
-	@Override
+    public Long getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Override
     public String toString() {
         return "ClassReviewRecord{" +
                 	"id=" + id +
@@ -66,7 +67,7 @@ public class ClassReviewRecord  implements Serializable {
                 	"planid=" + planid +
                 	"lowquality=" + lowquality +
                 	"style=" + style +
-                	"createdat=" + createdat +
+                	"createdat=" + createdAt +
                 '}';
     }
 }

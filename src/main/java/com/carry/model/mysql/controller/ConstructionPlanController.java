@@ -56,7 +56,7 @@ public class ConstructionPlanController {
     }
 
     @RequestMapping(value = "/getOneDayProcessListByClassId")
-    public List<String> getOneDayProcessListByClassId(Long startTime, Long endTime, Long classId){
+    public List<ConstructionPlan> getOneDayProcessListByClassId(@RequestParam("startTime") Long startTime, @RequestParam("endTime") Long endTime, @RequestParam("classId") Long classId) {
         return constructionPlanService.getOneDayProcessListByClassId(startTime, endTime, classId);
     }
 

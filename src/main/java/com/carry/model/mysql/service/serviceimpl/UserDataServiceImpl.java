@@ -8,11 +8,13 @@ import com.carry.model.mysql.po.UserCreat;
 import com.carry.model.mysql.po.UserData;
 import com.carry.model.mysql.po.UserInfo;
 import com.carry.model.mysql.service.UserDataService;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -85,4 +87,43 @@ public class UserDataServiceImpl implements UserDataService {
     public long updateUserScore (long id, int score) {
         return userDataMapper.updateUserScore(id,score);
     }
+
+    @Transactional
+    @Override
+    public List<UserCreat>  getAllUser () {
+        List<UserData>  userdatas = userDataMapper.findAll();
+        List<UserCreat> userCreatseat = Lists.newArrayList();
+        for ( UserData userdata : userdatas) {
+            UserInfo userInfo = userDataMapper.findUserInfoByid(userdata.getInfoid());
+            UserCreat userCreat = new UserCreat();
+            userCreat.setUserInfo(userInfo);
+            userCreat.setUserData(userdata);
+            userCreatseat.add(userCreat);
+        }
+        return userCreatseat;
+    }
+
+    @Transactional
+    @Override
+    public int deleteUser (Long id) {
+        return userDataMapper.delUserInfo(id)+userDataMapper.delUserData(id);
+    }
+
+
+    @Transactional
+    @Override
+    public int updateUser (Long id,String name,String phone,String password,String mail) {
+        int t = 0;
+        t += userDataMapper.updateData(id,phone,password);
+        t += userDataMapper.updateInfo(id,name,phone,mail);
+        return t;
+    }
+
+
+    @Transactional
+    @Override
+    public int updateUserPassword (Long id,String password) {
+        return userDataMapper.updatePassword(id,password);
+    }
+
 }

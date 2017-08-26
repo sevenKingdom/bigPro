@@ -4,6 +4,7 @@ import com.carry.model.mysql.po.UserCreat;
 import com.carry.model.mysql.po.UserData;
 import com.carry.model.mysql.po.UserInfo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,17 +12,25 @@ import java.util.Map;
  */
 public interface UserDataService {
 
-    public long updatetoken (long id);
+    long updatetoken (long id);
 
-    public Map<String,Object> creatUser (UserData userData, UserInfo userInfo) ;
+    Map<String,Object> creatUser (UserData userData, UserInfo userInfo) ;
 
     UserCreat login(String name, String password );
 
-    public long logoff(long id);
+    long logoff(long id);
 
     UserData verification (String token);
 
     String vDepentment (String token);
 
     long updateUserScore (long id, int score);
+
+    List<UserCreat> getAllUser ();
+
+    int deleteUser (Long id);
+
+    int updateUser (Long id,String name,String phone,String password,String mail);
+
+    int updateUserPassword (Long id,String password);
 }

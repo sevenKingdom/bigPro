@@ -5,6 +5,8 @@ import com.carry.model.mysql.po.UserInfo;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by songxianying on 17/7/18.
  */
@@ -39,9 +41,6 @@ public interface UserDataMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     long addUserinfo(UserInfo userInfo);
 
-    @Update("update user_info set phone = #{phone} where mail = #{mail}")
-    long updateInfo(@Param("phone") String phone,@Param("mail") String mail);
-
     @Select("select * from user_info where id = #{id} ")
     UserInfo findUserInfoByid(@Param("id") long id  );
 
@@ -49,9 +48,24 @@ public interface UserDataMapper {
     @Update("update user_data set score = score + #{score} where id = #{id}")
     long updateUserScore(@Param("id") long  id,@Param("score") int  score);
 
+    @Select("select * from user_data ")
+    List<UserData> findAll ();
 
-    //@Delete("delete from account where id = #{id}")
-    //int delete(int id);
+    @Delete("delete from user_data where id = #{id}")
+    int delUserData(long id);
+
+    @Delete("delete from user_info where id = (select infoid from user_data where id = #{id})")
+    int delUserInfo(long id);
+
+    @Update("update user_data set name = #{name} ,password = #{password} where id = #{id}")
+    int updateData(@Param("id") long id,@Param("name") String name,@Param("password") String password);
+
+    @Update("update user_info set name = #{name} ,phone = #{phone},mail = #{mail} " +
+            "where id = (select infoid from user_data where id = #{id})")
+    int updateInfo(@Param("id") long id,@Param("name") String name,@Param("phone") String phone,@Param("mail") String mail);
+
+    @Update("update user_data set password = #{password} where id = #{id}")
+    int updatePassword(@Param("id") long id,@Param("password") String password);
 
     //@Select("select id, name as name, money as money from account where id = #{id}")
     //Account findAccount(@Param("id") int id);

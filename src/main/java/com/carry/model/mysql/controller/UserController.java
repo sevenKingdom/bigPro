@@ -8,6 +8,7 @@ import com.carry.model.mysql.service.UserDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,5 +54,27 @@ public class UserController {
     @RequestMapping(value = "/updateUserScore",method = RequestMethod.GET)
     public Long updateUserScore(@RequestParam("id") Long id, @RequestParam("score") Integer score) {
         return userDataService.updateUserScore(id,score);
+    }
+
+    @RequestMapping(value = "/getAllUser" ,method = RequestMethod.POST)
+    public List<UserCreat> getAllUser(){
+        return userDataService.getAllUser();
+    }
+
+    @RequestMapping(value = "/deleteUser" ,method = RequestMethod.GET)
+    public int deleteUser (@RequestParam("id") Long id) {
+        return userDataService.deleteUser(id);
+    }
+
+    @RequestMapping(value = "/updateUser" ,method = RequestMethod.GET)
+    public int updateUser (@RequestParam("id") Long id,@RequestParam("name") String name,
+                           @RequestParam("phone") String phone,@RequestParam("password") String password,
+                           @RequestParam("mail") String mail) {
+        return userDataService.updateUser(id, name, phone, password, mail);
+    }
+
+    @RequestMapping(value = "/updateUserPassword" ,method = RequestMethod.GET)
+    public int updateUserPassword (@RequestParam("id") Long id,@RequestParam("password") String password){
+        return userDataService.updateUserPassword(id, password);
     }
 }

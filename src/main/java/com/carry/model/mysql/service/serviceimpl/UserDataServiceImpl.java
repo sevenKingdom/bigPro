@@ -126,4 +126,17 @@ public class UserDataServiceImpl implements UserDataService {
         return userDataMapper.updatePassword(id,password);
     }
 
+    @Override
+    public List<UserCreat> findBydepartment (String department) {
+        List<UserData>  userdatas = userDataMapper.findBydepartment(department);
+        List<UserCreat> userCreatseat = Lists.newArrayList();
+        for ( UserData userdata : userdatas) {
+            UserInfo userInfo = userDataMapper.findUserInfoByid(userdata.getInfoid());
+            UserCreat userCreat = new UserCreat();
+            userCreat.setUserInfo(userInfo);
+            userCreat.setUserData(userdata);
+            userCreatseat.add(userCreat);
+        }
+        return userCreatseat;
+    }
 }

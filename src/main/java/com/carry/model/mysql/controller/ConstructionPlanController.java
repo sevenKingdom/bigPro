@@ -71,4 +71,9 @@ public class ConstructionPlanController {
     public ConstructionPlan getByid(@RequestParam("id") Long id) {
         return constructionPlanService.getByid(id);
     }
+
+    @RequestMapping(value = "/delPlanData")
+    public int delPlanData(@RequestParam("id") long id) {
+        return constructionPlanService.delPlanData(id);
+    }
 }

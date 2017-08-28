@@ -52,4 +52,5 @@ public interface ConstructionPlanService {
 
     ConstructionPlan getByid( Long id);
 
+    int delPlanData(long id);
 }

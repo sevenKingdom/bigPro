@@ -3,6 +3,7 @@ package com.carry.model.mysql.service;
 import com.carry.model.mysql.po.UserCreat;
 import com.carry.model.mysql.po.UserData;
 import com.carry.model.mysql.po.UserInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -33,4 +34,6 @@ public interface UserDataService {
     int updateUser (Long id,String name,String phone,String password,String mail);
 
     int updateUserPassword (Long id,String password);
+
+    List<UserCreat> findBydepartment (String department);
 }

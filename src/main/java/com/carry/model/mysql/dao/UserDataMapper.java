@@ -57,7 +57,7 @@ public interface UserDataMapper {
     @Delete("delete from user_info where id = (select infoid from user_data where id = #{id})")
     int delUserInfo(long id);
 
-    @Update("update user_data set name = #{name} ,password = #{password} where id = #{id}")
+    @Update("update user_data set name = #{name}  where id = #{id}")
     int updateData(@Param("id") long id,@Param("name") String name,@Param("password") String password);
 
     @Update("update user_info set name = #{name} ,phone = #{phone},mail = #{mail} " +
@@ -66,6 +66,9 @@ public interface UserDataMapper {
 
     @Update("update user_data set password = #{password} where id = #{id}")
     int updatePassword(@Param("id") long id,@Param("password") String password);
+
+    @Select("select * from user_data where department like \"%\"#{department}\"%\" and department != #{department} ")
+    List<UserData> findBydepartment (@Param("department") String department);
 
     //@Select("select id, name as name, money as money from account where id = #{id}")
     //Account findAccount(@Param("id") int id);

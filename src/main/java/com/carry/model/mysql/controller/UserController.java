@@ -77,4 +77,9 @@ public class UserController {
     public int updateUserPassword (@RequestParam("id") Long id,@RequestParam("password") String password){
         return userDataService.updateUserPassword(id, password);
     }
+
+    @RequestMapping(value = "/findBydepartment" ,method = RequestMethod.GET)
+    public List<UserCreat> findBydepartment (@RequestParam("department") String department) {
+        return userDataService.findBydepartment(department);
+    }
 }

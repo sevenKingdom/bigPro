@@ -6,6 +6,7 @@ import com.carry.model.mysql.service.ConstructionPlanService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -74,5 +75,11 @@ public class ConstructionPlanServiceImpl implements ConstructionPlanService {
     @Override
     public ConstructionPlan getByid(Long id) {
         return constructionPlanMapper.getByid(id);
+    }
+
+    @Transactional
+    @Override
+    public int delPlanData(long id) {
+        return constructionPlanMapper.delPlanData(id);
     }
 }

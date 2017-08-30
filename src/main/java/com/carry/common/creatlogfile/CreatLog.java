@@ -25,8 +25,8 @@ import java.util.Map;
  */
 @Component
 public class CreatLog {
-    private static final String FILE_PATH = "/Users/songxianying/imge/";
-    private static final String SHOW_URL = "http://192.168.10.163:8763/file/";
+    private static final String FILE_PATH = "/home/tjPro/imageFileFolder";
+    private static final String SHOW_URL = "http://101.200.52.80:8763/file/";
 
     @Autowired
     private ConstructionPlanMapper constructionPlanMapper;
@@ -50,7 +50,7 @@ public class CreatLog {
         return constructionPlanMapper.getreListOneDay(DateUtil.getStartTime().getTimeInMillis(), DateUtil.getEndTime().getTimeInMillis());
     }
 
-    @Scheduled(cron="0 0/5 * * * ?")
+    @Scheduled(cron="0 0/30 * * * ?")
     public void test() {
         try {
             List<Map<String, Object>> htmldata = makeHtmlData();

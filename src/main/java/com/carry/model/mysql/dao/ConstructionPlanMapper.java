@@ -46,4 +46,10 @@ public interface ConstructionPlanMapper {
     @Delete("delete from construction_plan_t where id = #{id}")
     int delPlanData(@Param("id") long id);
 
+    @Select("select * from construction_plan_t where createdAt >= #{startTime} and createdAt <= #{endTime}")
+    List<ConstructionPlan> getListOneDay(@Param("startTime") Long startTime, @Param("endTime") Long endTime);
+
+    @Select("select * from construction_plan_t where id in " +
+            "(select planid from review_plan where createdAt >= #{startTime} and createdAt <= #{endTime})")
+    List<ConstructionPlan> getreListOneDay(@Param("startTime") Long startTime, @Param("endTime") Long endTime);
 }

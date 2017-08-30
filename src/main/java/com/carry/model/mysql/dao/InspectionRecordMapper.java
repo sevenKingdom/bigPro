@@ -2,9 +2,7 @@ package com.carry.model.mysql.dao;
 
 import com.carry.model.mysql.po.InspectionRecord;
 import com.carry.model.mysql.po.UserData;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,4 +15,8 @@ public interface InspectionRecordMapper {
             "values(#{inspectorid}, #{planid},#{quality},#{lowquality},#{style},#{createdAt})")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     long addInspectionRecord(InspectionRecord inspectionRecord);
+
+    @Select("select * from inspection_record where planid = #{planid} and style = #{style} order by createdAt limit 1")
+    InspectionRecord findByplanid (@Param("planid") long planid,@Param("style") int style);
+
 }

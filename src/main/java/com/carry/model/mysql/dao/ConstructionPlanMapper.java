@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface ConstructionPlanMapper {
-    @Select("select * from construction_plan_t where createdAt >= #{startTime} and createdAt <= #{endTime} and technicianId in (${technicianIds})")
+    @Select("select * from construction_plan_t where createdAt >= #{startTime} and createdAt <= #{endTime} and technicianId in (${technicianIds}) and  inspectorId is null ")
     List<ConstructionPlan> getListByTime(@Param("startTime") Long startTime, @Param("endTime") Long endTime, @Param("technicianIds") String technicianIds);
 
     @Insert("insert into construction_plan_t(bridgeName,pierNum,structure,process,category,isNeedDemonstrate," +

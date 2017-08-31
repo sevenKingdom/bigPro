@@ -16,7 +16,7 @@ public interface InspectionRecordMapper {
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     long addInspectionRecord(InspectionRecord inspectionRecord);
 
-    @Select("select * from inspection_record where planid = #{planid} and style = #{style} order by createdAt limit 1")
+    @Select("select * from inspection_record where planid = #{planid} and style = #{style} order by createdAt desc limit 1")
     InspectionRecord findByplanid (@Param("planid") long planid,@Param("style") int style);
 
 }
